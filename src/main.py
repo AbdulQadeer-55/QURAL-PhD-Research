@@ -3,86 +3,91 @@ import os
 import pandas as pd
 from tqdm import tqdm
 from prompts import get_evaluation_prompt
-from llm_engine import call_llm
+from llm_engine import call_llm, MODELS  # Import the list of models
 from evaluator import analyze_structural_quality
 
-# Point to your single Excel file
-DATA_FILE = "datasets/User_Stories_Combined.xlsx"
-OUTPUT_DIR = "outputs"
+DATA_DIR = "datasets"
+BASE_OUTPUT_DIR = "outputs"
 
 def process_datasets():
-    # 1. Check if the Excel file exists
-    if not os.path.exists(DATA_FILE):
-        print(f"❌ Error: File not found at {DATA_FILE}")
-        print("Please make sure your file is named 'User_Stories_Combined.xlsx' inside the 'datasets' folder.")
-        return
-
-    print(f"📂 Loading Excel file: {DATA_FILE}...")
+    # 1. Find CSV Files
+    files = [f for f in os.listdir(DATA_DIR) if f.endswith('.csv')]
     
-    try:
-        # 2. Read ALL sheets at once (sheet_name=None gets all tabs)
-        all_sheets = pd.read_excel(DATA_FILE, sheet_name=None)
-        print(f"✅ Found {len(all_sheets)} Projects (Sheets) inside the file.")
-    except Exception as e:
-        print(f"❌ Error reading Excel file: {e}")
+    if not files:
+        print("❌ No CSV files found in 'datasets/'")
         return
 
-    # 3. Loop through each Sheet (Project)
-    for sheet_name, df in all_sheets.items():
-        print(f"\n🚀 Processing Project: {sheet_name}...")
+    # 2. OUTER LOOP: Iterate through all 5 Models
+    for model_name in MODELS.keys():
+        print(f"\n==========================================")
+        print(f"🤖 STARTING EVALUATION WITH: {model_name}")
+        print(f"==========================================")
         
-        results = []
-        
-        # --- TEST MODE: Process only first 2 stories per project ---
-        # Change .head(2) to .head(550) or remove .head() later for the full run
-        for index, row in tqdm(df.head(2).iterrows(), total=2): 
-            
-            # Find the story column automatically
-            user_story = ""
-            for col in df.columns:
-                if isinstance(col, str) and ("story" in col.lower() or "content" in col.lower()):
-                    user_story = row[col]
-                    break
-            
-            # Fallback: Use the first column if no "story" header found
-            if not user_story and not df.empty:
-                user_story = row.iloc[0]
+        # Create a specific folder for this model's results
+        model_output_dir = os.path.join(BASE_OUTPUT_DIR, model_name)
+        os.makedirs(model_output_dir, exist_ok=True)
 
-            # Validation: Skip empty or too short rows
-            if not isinstance(user_story, str) or len(user_story) < 10:
+        # 3. INNER LOOP: Iterate through all 15 Projects
+        for file in files:
+            project_name = file.split(' - ')[-1].replace('.csv', '').strip()
+            output_path = os.path.join(model_output_dir, f"Evaluated_{project_name}.xlsx")
+            
+            # Skip if already done (Resume capability)
+            if os.path.exists(output_path):
+                print(f"⏩ {project_name} already done for {model_name}. Skipping...")
                 continue
 
-            # --- AI PROCESSING ---
-            prompt = get_evaluation_prompt(user_story)
-            response = call_llm(prompt)
+            print(f"   📂 Processing Project: {project_name}...")
             
-            if response:
-                scores = response.get('scores', {})
-                total = response.get('total_score', 0)
-                
-                # Weighted Analysis (Tier 1 vs Tier 2)
-                t1_score, t2_score, is_sound = analyze_structural_quality(scores)
-                
-                row_data = {
-                    "Original_Story": user_story,
-                    "Total_Score": total,
-                    "Structurally_Sound": is_sound,
-                    "Tier_1_Score": t1_score,
-                    "Tier_2_Score": t2_score,
-                    "Reasoning": response.get('reasoning', '')
-                }
-                row_data.update(scores) # Add the 14 scores
-                results.append(row_data)
+            # Load Data
+            input_path = os.path.join(DATA_DIR, file)
+            try:
+                df = pd.read_csv(input_path, encoding='utf-8')
+            except:
+                df = pd.read_csv(input_path, encoding='ISO-8859-1')
 
-        # 4. Save Individual Excel File for this Project
-        if results:
-            os.makedirs(OUTPUT_DIR, exist_ok=True)
-            # Create a safe filename (remove spaces/special chars)
-            safe_name = "".join([c if c.isalnum() else "_" for c in sheet_name])
-            output_path = f"{OUTPUT_DIR}/Evaluated_{safe_name}.xlsx"
+            results = []
             
-            pd.DataFrame(results).to_excel(output_path, index=False)
-            print(f"   💾 Saved results to: {output_path}")
+            # --- TEST MODE: LIMIT TO 2 STORIES ---
+            # Remove .head(2) when ready for full production run
+            for index, row in tqdm(df.head(2).iterrows(), total=2, desc=f"   Processing {project_name}"):
+                
+                # Find Story Column
+                user_story = ""
+                for col in df.columns:
+                    if "story" in col.lower() or "content" in col.lower():
+                        user_story = row[col]
+                        break
+                if not user_story and not df.empty: user_story = row.iloc[0]
+
+                if not isinstance(user_story, str) or len(user_story) < 10:
+                    continue
+
+                # --- AI CALL ---
+                prompt = get_evaluation_prompt(user_story)
+                
+                # Call the specific model in the loop
+                response = call_llm(prompt, model_friendly_name=model_name)
+                
+                if response:
+                    scores = response.get('scores', {})
+                    total = response.get('total_score', 0)
+                    t1, t2, sound = analyze_structural_quality(scores)
+                    
+                    row_data = {
+                        "Original_Story": user_story,
+                        "Total_Score": total,
+                        "Structurally_Sound": sound,
+                        "Tier_1_Score": t1,
+                        "Tier_2_Score": t2,
+                        "Reasoning": response.get('reasoning', '')
+                    }
+                    row_data.update(scores)
+                    results.append(row_data)
+
+            # Save Results for this Model + Project
+            if results:
+                pd.DataFrame(results).to_excel(output_path, index=False)
 
 if __name__ == "__main__":
     process_datasets()
