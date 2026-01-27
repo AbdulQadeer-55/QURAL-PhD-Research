@@ -1,0 +1,7 @@
+openai
+anthropic
+pandas
+numpy
+python-dotenv
+openpyxl
+tqdm
