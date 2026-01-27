@@ -6,43 +6,49 @@ from prompts import get_evaluation_prompt
 from llm_engine import call_llm
 from evaluator import analyze_structural_quality
 
-# Define paths
-DATA_FILE = "datasets/User_Stories_Combined.xlsx"  # The single Excel file
+# Point to your single Excel file
+DATA_FILE = "datasets/User_Stories_Combined.xlsx"
 OUTPUT_DIR = "outputs"
 
 def process_datasets():
-    # 1. Check if file exists
+    # 1. Check if the Excel file exists
     if not os.path.exists(DATA_FILE):
         print(f"❌ Error: File not found at {DATA_FILE}")
-        print("Please make sure the client's Excel file is renamed to 'User_Stories_Combined.xlsx' and inside the 'datasets' folder.")
+        print("Please make sure your file is named 'User_Stories_Combined.xlsx' inside the 'datasets' folder.")
         return
 
     print(f"📂 Loading Excel file: {DATA_FILE}...")
     
-    # 2. Read ALL sheets at once (sheet_name=None returns a Dictionary of sheets)
-    all_sheets = pd.read_excel(DATA_FILE, sheet_name=None)
-    
-    print(f"✅ Found {len(all_sheets)} Datasets (Sheets) inside the file.")
+    try:
+        # 2. Read ALL sheets at once (sheet_name=None gets all tabs)
+        all_sheets = pd.read_excel(DATA_FILE, sheet_name=None)
+        print(f"✅ Found {len(all_sheets)} Projects (Sheets) inside the file.")
+    except Exception as e:
+        print(f"❌ Error reading Excel file: {e}")
+        return
 
-    # 3. Loop through each sheet (Project)
+    # 3. Loop through each Sheet (Project)
     for sheet_name, df in all_sheets.items():
         print(f"\n🚀 Processing Project: {sheet_name}...")
         
         results = []
         
-        # LIMIT TO 2 STORIES FOR TEST (Remove .head(2) later for full run)
-        # for index, row in tqdm(df.iterrows(), total=len(df)): # <--- USE THIS FOR FULL RUN
-        for index, row in tqdm(df.head(2).iterrows(), total=2): # <--- CURRENTLY IN TEST MODE
+        # --- TEST MODE: Process only first 2 stories per project ---
+        # Change .head(2) to .head(550) or remove .head() later for the full run
+        for index, row in tqdm(df.head(2).iterrows(), total=2): 
             
-            # Detect the column containing the story (Handle different column names)
-            possible_cols = ['User Story', 'Story', 'Content', 'story']
+            # Find the story column automatically
             user_story = ""
-            for col in possible_cols:
-                if col in df.columns:
+            for col in df.columns:
+                if isinstance(col, str) and ("story" in col.lower() or "content" in col.lower()):
                     user_story = row[col]
                     break
             
-            # Skip empty rows
+            # Fallback: Use the first column if no "story" header found
+            if not user_story and not df.empty:
+                user_story = row.iloc[0]
+
+            # Validation: Skip empty or too short rows
             if not isinstance(user_story, str) or len(user_story) < 10:
                 continue
 
@@ -57,7 +63,6 @@ def process_datasets():
                 # Weighted Analysis (Tier 1 vs Tier 2)
                 t1_score, t2_score, is_sound = analyze_structural_quality(scores)
                 
-                # Prepare Row Data
                 row_data = {
                     "Original_Story": user_story,
                     "Total_Score": total,
@@ -66,12 +71,16 @@ def process_datasets():
                     "Tier_2_Score": t2_score,
                     "Reasoning": response.get('reasoning', '')
                 }
-                row_data.update(scores) # Add the 14 individual scores
+                row_data.update(scores) # Add the 14 scores
                 results.append(row_data)
 
-        # 4. Save Individual Excel for this Project
+        # 4. Save Individual Excel File for this Project
         if results:
-            output_path = f"{OUTPUT_DIR}/Evaluated_{sheet_name}.xlsx"
+            os.makedirs(OUTPUT_DIR, exist_ok=True)
+            # Create a safe filename (remove spaces/special chars)
+            safe_name = "".join([c if c.isalnum() else "_" for c in sheet_name])
+            output_path = f"{OUTPUT_DIR}/Evaluated_{safe_name}.xlsx"
+            
             pd.DataFrame(results).to_excel(output_path, index=False)
             print(f"   💾 Saved results to: {output_path}")
 
