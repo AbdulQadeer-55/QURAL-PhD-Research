@@ -1,15 +1,33 @@
-import pandas as pd
-from config import TIER_1_CRITERIA, TIER_2_CRITERIA
+# src/evaluator.py
 
-def calculate_weighted_score(scores_dict):
-    tier_1_score = sum(scores_dict.get(k, 0) for k in TIER_1_CRITERIA)
-    tier_2_score = sum(scores_dict.get(k, 0) for k in TIER_2_CRITERIA)
-    
-    total_score = tier_1_score + tier_2_score
-    
-    is_structurally_sound = True if tier_1_score >= (len(TIER_1_CRITERIA) * 1.5) else False
-    
-    return total_score, is_structurally_sound
+TIER_1_KEYS = [
+    "Role Identification", 
+    "Task Nature",         
+    "Acceptance Criteria", 
+    "Business Need", 
+    "Unambiguous"
+]
 
-def evaluate_story(user_story, client):
-    pass
+TIER_2_KEYS = [
+    "Task Identification", 
+    "Dependency", 
+    "Priority", 
+    "Quality Requirement", 
+    "Estimable", 
+    "Well Formed", 
+    "Problem Oriented", 
+    "Unique", 
+    "Testable"
+]
+
+def analyze_structural_quality(scores):
+    """
+    Implements the 'Weighted Criticality' check.
+    Returns: (Tier 1 Score, Tier 2 Score, Is_Structurally_Sound)
+    """
+    tier_1_total = sum(scores.get(k, 0) for k in TIER_1_KEYS)
+    tier_2_total = sum(scores.get(k, 0) for k in TIER_2_KEYS)
+    
+    is_structurally_sound = tier_1_total >= 8
+    
+    return tier_1_total, tier_2_total, is_structurally_sound
