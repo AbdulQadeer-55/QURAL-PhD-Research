@@ -1,7 +1,8 @@
-openai
-anthropic
 pandas
-numpy
-python-dotenv
 openpyxl
-tqdm
+numpy
+scipy
+matplotlib
+networkx
+python-docx
+scikit-learn
