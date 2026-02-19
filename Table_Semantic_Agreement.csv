@@ -1,0 +1,6 @@
+User Story,Element Identified,GPT4o Mini Extraction,Llama 3 Extraction,Semantic Agreement
+As a manager I want to export reports so that I can analyze data,Role,As a manager,As a manager,Yes
+As a manager I want to export reports so that I can analyze data,Business Need,so that I can analyze data,so that I can analyze data,Yes
+As a student I need to register for classes to get credits,Task Nature,register for classes,register for classes,Yes
+As a student I need to register for classes to get credits,Acceptance Criteria,N/A,N/A,Yes Both Agreed Missing
+As a guest I want to browse products,Role,As a guest,As a guest,Yes

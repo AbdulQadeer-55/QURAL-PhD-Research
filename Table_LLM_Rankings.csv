@@ -1,0 +1,6 @@
+Model,BERTScore_Weight (40%),METEOR_Weight (30%),Consistency_Weight (30%),Final_Weighted_Score
+GPT-4o-Mini,0.376,0.264,0.1249,0.7649
+Claude-3-Haiku,0.376,0.264,0.124,0.764
+Gemini-2.0-Flash-Lite,0.364,0.255,0.1362,0.7552
+Llama-3.1-70B,0.356,0.246,0.1396,0.7416
+Mistral-Nemo,0.356,0.246,0.1067,0.7087
