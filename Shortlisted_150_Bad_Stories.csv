@@ -1,0 +1,151 @@
+Defective User Story,Failing Score
+"As a camp administrator, I want to be able to remove campers if they don't attend the camp anymore, so that I can keep the records organized.",0
+"As a Researcher, I want to get a Data Package into SPSS in seconds, so that I can start using the data for doing analysis and visualizations. ",0
+"As a research head, I want to access to the persistent identifiers of datasets provided in the DMP, so that I can check that the DMP has been implemented.",0
+"As an Application Administrator, I want to be able to reset a User's password for them.",0
+to support data migration integrity testing.,3
+"As a user, I want to be able to access the site and do all the other stuffs on all of my electronic devices.",6
+"As a user, I want backend changes for managing enum lists.",7
+"As a user, I want frontend changes for managing enum lists.",8
+"As a user, I want backend changes for bulk updating one enum value to another.",9
+"As a camp administrator, I want to be able to warn a camp worker who I think did his/her job inappropriate.",9
+"As a repoadmin, I want to have Symplectic Elements bidirectionally communicate and integrate with DDR, which  provide a Fedora Connector and Emory is using a hidden Fedora instance that Hydra collects objects for.",10
+"As a collection curator, I want to have items be made available under the permissions they were configured once the embargo date has been reached.",10
+"As a collection curator, I want to move items from one collection to another.",10
+"As a repository manager, I want to elect to either replicate remotely or not and possibly to replicate beyond the primary remote site.",10
+"As an Archivist, I want to import Resources from MARCXML records.",10
+"As a team member, I want to understand how time off overlaps with plans around the user research.",10
+"As a DigitalRecords Archivist, I want to have the repository to lift embargoes on the release date and set the access controls to the configuration set on item on that date.",10
+"As a CMS SME, I want to see the webmaster workflow report, so that I can understand how this might impact current direction.",10
+"As a DigitalRecords Archivist, I want to edit the length of embargoes.",10
+"As a camp administrator, I want to be able to keep my information in one place, so that the admins next year can improve on the previous years.",10
+"As a user, I want to add a video to my article.",10
+"As a camp administrator, I want to store camper's immediate parent/guardian's information, so that I can easily call to notify them in case a grossly unacceptable behavior.",10
+"As a user, I want backend changes to support loading enum value lists from the database.",10
+"As an Authenticated User, I want to get access to links to contextual help.",10
+"As a depositor, I want to have guarantees about data integrity, so that I can use my data in the future and I can fulfil funder requirements for archival.",10
+"As a trainee, I want to see which trainings I have signed up for, so that they can schedule their event experience.",10
+"As a collection curator, I want to have the item to be allowed under the access permissions set on the object after the embargo data is reached.",10
+"As a company, I want to have a website that is easy to use, so that I can upload or delete stuff step by step.",10
+"As a Zooniverse admin, I want to perform automatic animal number detection in Snapshot Serengeti.",10
+"As a web recruiter manager, I want to confirm the recruiter is set up and working properly on Science360.gov.",10
+"As a repoadmin, I want to have the license be recorded in metadata and displayed alongside the item.",10
+"As an admin, I want to have all data encrypted, so that important information will not be stolen during a server breach or an attack.",10
+"As a developer, I want to use a configuration that is not prepackaged within a built version of application.",10
+"As a systems administrator, I want to be able to control the location of the demo database and I want it to be backed up.",10
+"As an admin, I want to annotate news video segments and extract a topic for each segment.",10
+"As a user, I want to have my personal information kept securely in the database of the website, so that I will not suffer from identity theft or telephone harassment.",10
+"As an employee from the HR department, I want to have access to the full information of all employees working for this business.",10
+"As an UnivITservice, I want to store archived data directly on the HCP object store, so that  features can be made.",10
+"As a user, I want to have a great UI and UX from the sites, so that I have a pleasant experience when navigating through them.",10
+"As a researcher, I want to know how many resources are needed during the project, so that I can calculate costs.",10
+"As a user, I want to get info about perceptually similar video items and segments.",10
+"As a fundingbody, I want to be reassured that researchers I fund have robust archival plans for their data, so that I can be sure that funding them is a worthwhile investment.",10
+"As a stakeholder, I want to have a decision on whether or not the blog aggregator may work for beta, and if not what will.",10
+"As a legalofficer, I want to know about data sensitivity, so that I can establish sharing options.",10
+"As a developer, I want to determine if we can use the in-built Fedora 4 event audit services.",10
+"As a team member, I want to understand what the MVP should look like, so that I can begin understanding workflow needs as they pertain to any CMS decision.",10
+"As a camp administrator, I want to be able to make nametags faster, so that I don't have to spend two hours making 200+ nametags",10
+"As an Archivist, I want to import EAD files that were exported by Archon.",10
+"As an NSF employee, I want to know how brand guidelines are developed and maintained, so that I can incorporate them throughout the project.",10
+"As an NSF employee, I want to have high-level strategy recommendations to implement in conjunction with the new CMS.",10
+"As a trainee, I want to must accept the cancellation terms with a checkbox, so that they can be accountable..",10
+"As a DigitalRecords Archivist, I want to grant embargo privileges to other repository administrators.",10
+"As an Archivist, I want to export a description as EAD.",10
+"As an archivist, I want to search within a repository for resource and accession and digital object records.",10
+"As a collection curator, I want to have a tool to perform author authority control.",10
+"As a publisher, I want to show the world how my published data is, so that that it immediately catches consumer's attention. ",10
+"As an Archivist, I want to be able to understand that an error occurred during import and why it might have occurred.",10
+"As an Archivist, I want to associate a standard identifier string with a Subject heading.",10
+"As an app developer, I want to only depend on the interface of a dataset type in my app and have the system inject the implementation at runtime.",10
+"As an Archivist, I want to assign a component unique identifier to a Resource Component.",10
+"As a user, I want to get info about similar video items and segments.",10
+"As a user, I want to view thumbnail sequences of video segments.",10
+"As a Consumer, I want to know that the data I am downloading is good and can be relied on, so that that I don't have to check it myself or run into annoying bugs later on.",10
+"As a Consumer, I want to be able to get the data for a data package even if the original data has been moved or removed, so that that I can still use is and my app or analysis keeps working.",10
+"As an app developer, I want to explore a dataset instance of a type that was deployed as part of an app.",10
+"As a Developer, I want to use data package as a node lib in my project, so that that I can depend on it using my normal dependency framework.",10
+"As a Data Analyst I want to download a data package, so that that I can study it and wrangle with it to infer new data or generate new insights.",10
+"As a moderator, I want to add an item to the list of items to be estimated, so that so that we can be flexible and accommodate situations where we think of a new story while playing.",10
+"As a hydrator user, I want to explore the datasets created by my pipeline.",10
+"As a authenticateduser, I want to See a payment page to pay for my individual sponsorships as the third step of the registration process so that pay for my sponsorship.",10
+"As a developer, I want an DSpace integration, so that I can integrate data-packaged data with pipelines that use Dspace. ",10
+"As a Consumer, I want to see how much the data has been downloaded, so that that I can choose most popular in the case when there are several alternatives for my use case.",10
+"As a consumer, I want to view the data package, so that that I can get a sense of whether I want this dataset or not.",10
+"As a Zooniverse admin, I want to identify volunteer types.",10
+"As a dataset developer, I want to explore a dataset instance created from a dataset type that was deployed by itself.",10
+"As a dataset developer, I want to have the option of forcing applications to have the dataset code injected at runtime.",10
+"As an app developer, I want to share a dataset type that I had previously deployed as part of an app.",10
+"As a Developer, I want an Elasticsearch integration, so that I can integrate data-packaged data with pipelines that use Elasticsearch. ",10
+"As a ResearcherGovernment Publisher, I want to add reference data on inflation to my spending dataset, so that the spending lines in my dataset is more understandable. ",10
+"As an Inspection Supervisor, I want to Manage Inspector Workload, so that I can meet service level and quality requirements.",10
+"As a collection curator, I want to see the scheduled records deletion date be displayed on the item and component pages.",10
+"As a user, I want to receive content recommendations from similar profiles.",10
+"As a user, I want to identify products in videos, and receive related information about them.",10
+"As a user, I want to add additional properties for repositories.",10
+"As an Archivist, I want to import only Agent and Subject information from MARCXML records.",10
+"As an Archivist, I want to add Notes to other record types.",10
+"As an Administrator, I want to create a new User account for someone else.",10
+"As a Zooniverse admin, I want to assess how interesting or appealing or complex a picture is based on automated analysis, citizen annotations, and comments on Talk.",11
+"As an app developer, I want to ensure that when I deploy a new version of an app that includes an older version of a dataset type deployed by another app and I expect that the dataset instances created by this app use the dataset type code included in this app.",11
+"As an API User, I want to be able to normalise measures by GDP, so I work with datasets in reference to their contextual constraints.",12
+"As a pipeline developer, I want to upgrade a dataset instance to a newer version of the code after the pipeline was created.",12
+"As a plugin developer, I want to use a custom dataset type that was deployed independently or as part of an app inside the plugin. ",12
+"As an Archivist, I want to add administrative data about the archival description and finding aid-related data to a top-level Resource.",12
+"As an Application Administrator, I want to assign Users to an Advanced Data Entry and ensure that the appropriate permissions are enforced.",12
+"As an NSF employee, I want to understand the process of switching the cloud.gov hosting plan over from prototype to FISMA low.",12
+"As a DigitalRecords Archivist, I want to have a method to add and remove individual people from deposit groups.",12
+"As a dataset developer, I want to assign explicit versions to the code of a dataset type.",12
+"As an app developer, I want to write unit tests for an app that depends on the interface of a dataset type.",12
+"As a migration specialist, I want to store the AT or Archon source record ids in each ASpace record",12
+"As a camp administrator, I want to be able to set a reminders related to specific tasks that has to be done.",12
+"As an admin, I want to get a quick assessment of whether audio material has been edited before the upload.",12
+"As an admin, I want to filter and rank videos based on A/V quality aspects.",12
+"As a moderator, I want to edit an item in the list of items to be estimated, so that I can make it better reflect the team's understanding of the item.",12
+"As a moderator, I want to see all items we try to estimate this session, so that I can answer questions about the current story such as ""does this include ___"".",12
+"As a Zooniverse admin, I want to perform automatic detection of plankton size or orientation in Plankton Portal images.",12
+"As an estimator, I want to see all items we will try to estimate this session, so that I have a feel for the sizes of the various items.",12
+"As a moderator, I want to select whether to have the team estimate with {0, 1/2, 1, 2, 3, 5, 8, etc.} or {0, 1, 2, 4, 8, 16, 32, etc.}, so that the team can use either the modified Fibonacci sequence or powers of 2.",12
+"As a dataset developer, I want to separate the interface from the implementation of a dataset type.",12
+"As a dataset developer, I want to have an archetype that helps me package my dataset type properly.",12
+"As an app developer, I want to ensure that when I deploy a new version of an app that includes a shared dataset type that all dataset instances created by this app start using the new code but all dataset instances created by other apps remain unchanged.",12
+"As a Developer, I want a DAT integration, so that I can integrate data-packaged data with pipelines that use DAT. ",12
+"As a Developer, I want an EPrints integration, so that I can integrate data-packaged data with pipelines that use EPrints. ",12
+"As a Machine Learning expert, I would like to package ML datasets as data packages, so that I can easily import them into my ML platform, so that I can start using the data in doing analysis. ",12
+"As a Developer, I want to get a Data Package into C++ in seconds, so that I can start using the data in doing analysis and visualizations. ",12
+"As a dataset developer, I want to have the option of implementing a migration procedure that can be run after an upgrade of a dataset instance to a new version of it type. ",12
+"As a data scientist, I want to be able to upgrade a dataset instance to a new version of its code.",12
+"As a Zooniverse admin, I want to perform automatic animal attribute preclassification in Snapshot Serengeti.",12
+"As a Zooniverse admin, I want to perform automatic animal species preclassification in Snapshot Serengeti.",12
+"As a Zooniverse admin, I want to perform automatic image series detection for the case of timestamping malfunction in Snapshot Serengeti images.",12
+"As a Zooniverse admin, I want to detect when a scientist should be prompted to look at a subject, based on annotations and information from Talk comments.",12
+"As an app developer, I want to deploy a new version of a dataset type as part of an app artifact, without affecting other datasets of this type.",12
+"As a attendee, I want to see what summits I'm signed up for, so that I can confirm my attendence and prevent myself from accidentally double-booking with a training or another summit.",12
+"As an Admin, I want to invite someone to join the platform, so that that they can start contributing or using data.",12
+"As a Publisher, I want to know what do next after signing up, so that that I can get going quickly.",12
+"As a Publisher, I want to sign up for an account, so that that I can publish my data package to the registry and to have a publisher account to publish my data package under.",12
+"As a Developer, I want to get a Data Package into Julia in seconds, so that I can start using the data in doing analysis and visualizations. ",12
+"As a Developer, I want to do exploratory data analysis in R and operationalize that analysis in Python, so that I can use the best tool for the job.",12
+"As a Researcher, I want to get my Excel spreadsheet into a Data Package, so that I can benefit from better tooling and standardization. ",12
+"As a Developer, I want a jQuery plugin for Core Data Packages, so that I can use it to apply to form control that uses a core dataset for autocompletion. ",12
+"As a Developer, I want to get a Data Package into Python in seconds, so that I can start using the data for doing analysis and visualizations. ",12
+"As a Consumer, I want to search data packages, so that that I can find the ones I want.",12
+"As a Developer, I want HDF5 integration, so that I can integrate data-packaged data with pipelines that use HDF5.",12
+"As a collection curator, I want to have my collection be encrypted with a key maintained on that server, a checksum made and stored of the encrypted file, and the encrypted file replicated to our remote storage site.",12
+"As a repository manager, I want to track who is financially responsible for each item in the repository, who should probably be a person contact including name, phone, email, maybe title and address.",12
+"As a anonymoususer, I want to see all events, trainings and summits that a sponsor is sponsoring so that I know where I can engage with this sponsor and where they are thought leaders.",12
+"As a anonymoususer, I want to view venue details, so that I can get a sense of the location and see the events happening there.",12
+"As a administrator, I want to create and maintain venues, so that I can provide location details to help users find what they're looking for.",12
+"As an app developer, I want to share a dataset type across multiple applications that include the dataset type's code in their artifacts.",12
+"As an admin, I want to prefilter the content using search on high­level asset information such as metadata and tags either recognized by the system of provided by the user.",12
+"As an admin, I want to automatically validated the ingested contents for copyright infringement.",12
+"As an admin, I want to prefilter content using search based on low­level asset information.",12
+"As an admin, I want to prefilter nudity content.",12
+"As a Researcher, I want to get a Data Package into Excel in seconds, so that I can start using the data for doing analysis and visualizations. ",12
+"As a Researcher, I want to get a Data Package into R in seconds, so that I can start using the data for doing analysis and visualizations. ",12
+"As a ResearcherPublisher, I want to know that my data conforms to its Data Package profile, so that I can feel trust in the validity and usefulness of the data. ",12
+"As a Researcher, I want to be able to save new visualizations, so that I can share them with others or include them in the Data Package. ",12
+"As a user, I want to walk around, access content using a geographical map and be informed if there are videos covering the area, monuments or any other relevant point of interest.",12
+"As a user, I want to identify brands in videos, and receive related information about them.",12
+"As a user, I want to identify broadcaster logos in videos, and receive related information about them.",12
+"As a user, I want to identify persons in videos, and receive related information about them.",12
