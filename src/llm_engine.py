@@ -35,7 +35,8 @@ def clean_json_string(content):
 
 def call_llm(messages, model_friendly_name="GPT-4o-Mini"):
     model_id = MODELS.get(model_friendly_name)
-    if not model_id: return None
+    if not model_id:
+        return None
 
     current_model_id = model_id
     
@@ -44,16 +45,17 @@ def call_llm(messages, model_friendly_name="GPT-4o-Mini"):
             response = client.chat.completions.create(
                 model=current_model_id,
                 messages=messages,
-                response_format={"type": "json_object"}, 
+                response_format={"type": "json_object"},
                 temperature=0.1,
                 extra_headers={
-                    "HTTP-Referer": "https://fiverr.com", 
-                    "X-Title": "PhD Research QURAL"
+                    "X-Title": "QURAL PhD Research Pipeline"
                 }
             )
+
             content = response.choices[0].message.content
-            if not content: continue
-            
+            if not content:
+                continue
+
             return json.loads(clean_json_string(content), strict=False)
 
         except Exception as e:
@@ -63,4 +65,5 @@ def call_llm(messages, model_friendly_name="GPT-4o-Mini"):
                     print(f"⚠️ Switching to fallback: {current_model_id}")
                     continue
             time.sleep(2)
+
     return None
